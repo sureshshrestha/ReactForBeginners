@@ -13,7 +13,9 @@ class StorePicker extends React.Component {
     // 1. grab the text from the text box
     // 2. Route from / to /store/:storeId
 
-    console.log(this.storeInput.value  );
+    const storeId = this.storeInput.value;
+    console.log(`Going to ${storeId}`);
+    this.context.router.transitionTo(`/store/${storeId}`);
   }
 
   render() {
@@ -28,5 +30,8 @@ class StorePicker extends React.Component {
   }
 }
 
+StorePicker.contextTypes = {
+  router: React.PropTypes.object
+}
 
 export default StorePicker;
